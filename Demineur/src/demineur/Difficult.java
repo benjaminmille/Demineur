@@ -12,7 +12,7 @@ package demineur;
 public class Difficult {
     
     /* Constante Largeur / Longueur. */
-    private static final int LARGEUR_LONGUEUR = 8;
+    private static final int LARGEUR_LONGUEUR = 10;
     
     public void Difficult() {
         
