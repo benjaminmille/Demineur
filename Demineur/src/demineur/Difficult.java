@@ -39,6 +39,8 @@ public class Difficult {
             longueur = LARGEUR_LONGUEUR * 2;
             largeur = LARGEUR_LONGUEUR * 2;
         }
+        
+    nbMines = this.countMines(longueur, largeur);
     
     //TODO call lancement partie
    }
@@ -50,6 +52,11 @@ public class Difficult {
      * @return number of Mines
      */
     public int countMines(int longueur, int largeur) {
+        int result;
+        int nbCases = longueur + largeur;
         
+        result = nbCases * (10/100);
+        
+        return result;
     }
 }
