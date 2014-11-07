@@ -9,22 +9,17 @@ package demineur;
  * @author Gartok
  */
 public class LancementPartie {
+   
+    Case initCase;
     
-    int longueur;
-    int largeur;
-    int nombreMine;
-    String tableau[][];
-    
-    public LancementPartie(int longueur, int largeur, int nombreMine) {
-
+    public LancementPartie(int longueur, int largeur, int nbMines) {
+        initCase = new Case(longueur, largeur, nbMines);
+        initCase.creationTableau();
     }
     
     public void affichageGrille() {
-        
+        initCase.recuperationName();
     }
     
-    private void generationMine() {
-        
-    }
 }
 

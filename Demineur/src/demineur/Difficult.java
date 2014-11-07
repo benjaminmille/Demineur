@@ -42,8 +42,8 @@ public class Difficult {
         
     nbMines = this.countMines(longueur, largeur);
     System.out.println("coucou");
-    Case az = new Case(longueur, largeur, nbMines);
-    az.creationTableau();
+    LancementPartie launch = new LancementPartie(longueur, largeur, nbMines);
+    launch.affichageGrille();
     //TODO call lancement partie
    }
     
