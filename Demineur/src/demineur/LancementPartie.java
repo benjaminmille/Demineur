@@ -5,25 +5,31 @@
  */
 package demineur;
 
+import java.util.Scanner;
+
 /**
  * @author Gartok
  */
 public class LancementPartie {
     
-    int longueur;
-    int largeur;
-    int nombreMine;
-    String tableau[][];
-    
-    public LancementPartie(int longueur, int largeur, int nombreMine) {
-
-    }
-    
-    public void affichageGrille() {
+    public LancementPartie() {
         
     }
     
-    private void generationMine() {
+    public void position() {
+        String result;
+        String x;
+        String y;
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Veuillez saisir des coordoneés (Séparer par un /) :");
+        result = sc.nextLine();
+        
+        x = result.split("\\/")[0];
+        y = result.substring(result.lastIndexOf("/" + 1));
+        
+        //TODO get tableau
+        //TODO verifié avec tableau
         
     }
 }
