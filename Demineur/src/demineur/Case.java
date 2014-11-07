@@ -44,7 +44,7 @@ public class Case {
         int indexLargueur = 0;
         Case addCase;
         for(int i = 1; i < this.taille ; i++) {
-            
+            int random = (int)(Math.random() * (6-0));
             if (Math.random() == 1
                     && this.nombreMine >= mineCreate) {
                 addCase = new Case(true);
@@ -61,7 +61,7 @@ public class Case {
                 indexLongueur=0;
                 addToArray(indexLongueur, indexLargueur, addCase);
                 indexLargueur++;
-                
+               
             }
         }
     }
@@ -84,6 +84,14 @@ public class Case {
             
             if (indexLongueur <= longueur-1) {
                 Object caseTab = TotalCase[indexLongueur][indexLargueur];
+            if ((((Case)caseTab).isMask) != true) {
+                (((Case)caseTab).name) = "0";
+            }
+            if ((((Case)caseTab).isMask) != true && 
+                    (((Case)caseTab).isMine) == true ) {
+                (((Case)caseTab).name) = "*";
+            }
+            
                 line = line + " " + (((Case)caseTab).name);
 
                 indexLongueur++; 
