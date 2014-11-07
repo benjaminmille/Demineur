@@ -38,19 +38,20 @@ public class Demineur {
         }
         System.out.println("Votre highscore est:"); 
     
-        String filePath = "C:\\dev\\git\\demineur\\demineur\\Demineur\\highscore.txt";
+        String filePath =  new java.io.File("").getAbsolutePath() + "\\highscore.txt";
 
-       Scanner scanner=new Scanner(new File(filePath));
+        Scanner scanner = new Scanner(new File(filePath));
 
-       // On boucle sur chaque champ detecté
-       while (scanner.hasNextLine()) {
-           String line = scanner.nextLine();
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
 
-           System.out.println(line);
-               //faites ici votre traitement
-       }
+            System.out.println(line);
+        }
 
-       scanner.close();
+        scanner.close();
+
+        Difficult diff = new Difficult();
+        diff.chooseDifficulty(str);
 
     }
 
