@@ -11,16 +11,25 @@ import java.util.Scanner;
  * @author Gartok
  */
 public class LancementPartie {
+   
+    int longueur;
+    int largeur;
+    int nombreMine;
+    String tableau[][];
+    Case initCase;
     
-    public LancementPartie() {
-        
+    public LancementPartie(int longueur, int largeur, int nbMines) {
+        initCase = new Case(longueur, largeur, nbMines);
+        initCase.creationTableau();
     }
     
+    public void affichageGrille() {
+        initCase.recuperationTableau();
+    }
     public void position() {
         String result;
         String x;
         String y;
-        
         Scanner sc = new Scanner(System.in);
         System.out.println("Veuillez saisir des coordoneés (Séparer par un /) :");
         result = sc.nextLine();
