@@ -32,8 +32,6 @@ public class FinPartie {
         
         while (scanner.hasNextLine()) {
              line = scanner.nextLine();
-
-            System.out.println(line);
         }
         
         int highscore;
@@ -41,7 +39,7 @@ public class FinPartie {
         
         scanner.close();
                 
-        if (highscore > score) {
+        if (highscore < score) {
         
             //on va chercher le chemin et le nom du fichier et on me tout ca dans un String
             String adressedufichier = new java.io.File("").getAbsolutePath() + "\\highscore.txt";
@@ -49,40 +47,29 @@ public class FinPartie {
             //on met try si jamais il y a une exception
             try
             {
-                /**
-                 * BufferedWriter a besoin d un FileWriter, 
-                 * les 2 vont ensemble, on donne comme argument le nom du fichier
-                 * true signifie qu on ajoute dans le fichier (append), on ne marque pas par dessus 
-
-                 */
                 FileWriter fw = new FileWriter(adressedufichier, true);
-
-                // le BufferedWriter output auquel on donne comme argument le FileWriter fw cree juste au dessus
                 BufferedWriter output = new BufferedWriter(fw);
-
-                //on marque dans le fichier ou plutot dans le BufferedWriter qui sert comme un tampon(stream)
+                
                 output.write(score);
-                //on peut utiliser plusieurs fois methode write
-
                 output.flush();
-                //ensuite flush envoie dans le fichier, ne pas oublier cette methode pour le BufferedWriter
-
                 output.close();
-                //et on le ferme
-                System.out.println("Félicitation, vous avez fait le meilleur score.");
+                
+                System.out.println("Félicitation, vous avez fait le meilleur score: " + score + "\n");
             }
             catch(IOException ioe){
-                System.out.print("Erreur : Votre score n'a pas pu être enregistré.");
+                System.out.print("Erreur : Votre score n'a pas pu être enregistré.\n");
                 ioe.printStackTrace();
             }
+        } else {
+            System.out.print("Vous avez perdu.\n");
+            System.out.println("Votre meilleur score est: " + line + "\n");
         }
-        
         java.util.Date nDate = new java.util.Date();
         
-        System.out.println("Heure de début: " + date + ". Heure de fin: " + nDate + ".");
+        System.out.println("Heure de début: " + date + ".\nHeure de fin: " + nDate + ".");
                 }
         catch (FileNotFoundException e) {
-            
+            System.out.print("Erreur : Problème de fin de partie.\n");
         }
         
     }
