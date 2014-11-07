@@ -51,12 +51,12 @@ public class LancementPartie {
         x = result.split("\\/")[0];
         y = result.split("\\/") [1];
         
-        End = initCase.resultCase(Integer.parseInt(x), Integer.parseInt(y));
-        if (End != true) {
-            score = score + 1000;
+        if (result.matches("([1-20]/[1/20])")) {
+          End = initCase.resultCase(Integer.parseInt(x), Integer.parseInt(y));
+            if (End != true) {
+                score = score + 1000;
+            }
         }
-        //TODO verifié avec tableau
-        
     }
 }
 
