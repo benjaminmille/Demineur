@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  * @author BenBen
  */
 public class FinPartie {
-    public FinPartie(int score) throws FileNotFoundException {
+    public FinPartie(int score, java.util.Date date) throws FileNotFoundException {
         String filePath =  new java.io.File("").getAbsolutePath() + "\\highscore.txt";
 
         Scanner scanner = new Scanner(new File(filePath));
@@ -67,12 +67,17 @@ public class FinPartie {
 
                 output.close();
                 //et on le ferme
-                System.out.println("Votre highscore a été enregistré.");
+                System.out.println("Félicitation, vous avez fait le meilleur score.");
             }
             catch(IOException ioe){
                 System.out.print("Erreur : Votre score n'a pas pu être enregistré.");
                 ioe.printStackTrace();
             }
         }
+        
+        java.util.Date nDate = new java.util.Date();
+        
+        System.out.println("Heure de début: " + date + ". Heure de fin: " + nDate + ".");
+        
     }
 }
