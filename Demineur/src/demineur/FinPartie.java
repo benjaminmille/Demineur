@@ -21,10 +21,12 @@ import java.util.logging.Logger;
  * @author BenBen
  */
 public class FinPartie {
-    public FinPartie(int score, java.util.Date date) throws FileNotFoundException {
+    public FinPartie(int score, java.util.Date date) {
         String filePath =  new java.io.File("").getAbsolutePath() + "\\highscore.txt";
-
+        
+        try {
         Scanner scanner = new Scanner(new File(filePath));
+
 
         String line = null;
         
@@ -78,6 +80,10 @@ public class FinPartie {
         java.util.Date nDate = new java.util.Date();
         
         System.out.println("Heure de début: " + date + ". Heure de fin: " + nDate + ".");
+                }
+        catch (FileNotFoundException e) {
+            
+        }
         
     }
 }

@@ -17,14 +17,28 @@ public class LancementPartie {
     int nombreMine;
     String tableau[][];
     Case initCase;
+    boolean End = false;
+    int score = 0;
+    java.util.Date nDate;
     
     public LancementPartie(int longueur, int largeur, int nbMines) {
         initCase = new Case(longueur, largeur, nbMines);
         initCase.creationTableau();
+        nDate = new java.util.Date();
     }
     
+    public void partie () {
+        while (End != true) {
+            position();
+        }
+        if (End == true) {
+            
+            FinPartie fp = new FinPartie(score, nDate);
+        }
+    }
     public void affichageGrille() {
         initCase.recuperationTableau();
+        this.partie();
     }
     public void position() {
         String result;
@@ -35,9 +49,12 @@ public class LancementPartie {
         result = sc.nextLine();
         
         x = result.split("\\/")[0];
-        y = result.substring(result.lastIndexOf("/" + 1));
+        y = result.split("\\/") [1];
         
-        //TODO get tableau
+        End = initCase.resultCase(Integer.parseInt(x), Integer.parseInt(y));
+        if (End != true) {
+            score = score + 1000;
+        }
         //TODO verifié avec tableau
         
     }

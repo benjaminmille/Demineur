@@ -45,8 +45,8 @@ public class Case {
         Case addCase;
         for(int i = 1; i < this.taille ; i++) {
             int random = (int)(Math.random() * (6-0));
-            if (Math.random() == 1
-                    && this.nombreMine >= mineCreate) {
+            if (random == 1
+                    && this.nombreMine <= mineCreate) {
                 addCase = new Case(true);
             }
             else {
@@ -112,13 +112,13 @@ public class Case {
             (((Case)caseTab).isMask) = false;
             recuperationTableau();
             if ((((Case)caseTab).isMine) == true) {
-                return false;
-            } else {
                 return true;
+            } else {
+                return false;
             }
             
         } else {
-            return true;
+            return false;
         }
         
     }
