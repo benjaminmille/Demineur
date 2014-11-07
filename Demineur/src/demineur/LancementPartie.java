@@ -9,25 +9,18 @@ package demineur;
  * @author Gartok
  */
 public class LancementPartie {
+    
     int longueur;
     int largeur;
     int nombreMine;
-    String ligne;
-
+    String tableau[][];
     
     public LancementPartie(int longueur, int largeur, int nombreMine) {
-        this.longueur = longueur;
-        this.largeur = largeur;
-        this.nombreMine = nombreMine;
+
     }
     
-    private void affichageGrille() {
-        for (int i=0; i >= longueur; i++) {
-            ligne = ligne +"#";
-            if (i == longueur) {
-                ligne = ligne + "\n";
-            }
-        }
+    public void affichageGrille() {
+        
     }
     
     private void generationMine() {
