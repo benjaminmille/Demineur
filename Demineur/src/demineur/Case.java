@@ -74,16 +74,16 @@ public class Case {
         return taille;
     }
     
-    public void recuperationName() {
+    public void recuperationTableau() {
         
         int mineCreate = 0;
         int indexLongueur = 0;
-        int indexLargueur = 0;
+        int indexLargeur = 0;
         String line = "";
         for(int i = 1; i < taille ; i++) {
             
             if (indexLongueur <= longueur-1) {
-                Object caseTab = TotalCase[indexLongueur][indexLargueur];
+                Object caseTab = TotalCase[indexLongueur][indexLargeur];
             if ((((Case)caseTab).isMask) != true) {
                 (((Case)caseTab).name) = "0";
             }
@@ -95,16 +95,32 @@ public class Case {
                 line = line + " " + (((Case)caseTab).name);
 
                 indexLongueur++; 
-            }
-            else {
+            } else {
                 indexLongueur=0;
                 
                 System.out.println(line + "\n");
                 line = "";
-                indexLargueur++;
+                indexLargeur++;
                 
             }
         }
+    }
+    
+    public boolean resultCase(int indexLongueur, int indexLargeur) {
+        Object caseTab = TotalCase[indexLongueur][indexLargeur];
+        if ((((Case)caseTab).isMask) == true) {
+            (((Case)caseTab).isMask) = false;
+            recuperationTableau();
+            if ((((Case)caseTab).isMine) == true) {
+                return false;
+            } else {
+                return true;
+            }
+            
+        } else {
+            return true;
+        }
+        
     }
 }
 
